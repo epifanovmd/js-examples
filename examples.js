@@ -1,3 +1,36 @@
+// Promise
+
+const doSomething = () => {
+	return Promise.resolve(1);
+};
+
+const doSomethingElse = (number) => {
+	const finalNumber = number ? 1 : 2;
+  
+  return Promise.resolve(finalNumber);
+};
+
+const doFinally = (number) => {
+	console.log(number);
+};
+
+doSomething()
+	.then(() => doSomethingElse())
+	.then(doFinally);
+
+doSomething()
+	.then(() => { doSomethingElse() })
+	.then(doFinally);
+
+doSomething()
+	.then(doSomethingElse())
+	.then(doFinally);
+
+doSomething()
+	.then(doSomethingElse)
+	.then(doFinally);
+  
+
 // Scoupe
 
 const getFunctions = () => {
@@ -13,6 +46,14 @@ const getFunctions = () => {
 getFunctions()[0](); // ???
 getFunctions()[2](); // ???
 getFunctions()[4](); // ???
+
+
+
+function () {
+    var test = "Test"
+}
+
+console.log(test);
 
 
 
